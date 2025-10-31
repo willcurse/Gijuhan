@@ -1,5 +1,9 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { FloatingDockNavbar } from "@/components/Pageui/FloatingDockNavbar";
+import { NavbarTextFlip } from "@/components/Pageui/NavbarTextFlip";
+import CurtainTransition from "@/components/Pageui/Functionality/CurtainTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +26,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <CurtainTransition>
+          <NavbarTextFlip />
+          {/* <FloatingDockNavbar /> */}
+
+          {children}
+        </CurtainTransition>
+
       </body>
     </html>
   );
